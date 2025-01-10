@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "sharepoint/": true
+  },
+  "files.simpleDialog.enable": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/bdd/.venv/bin/python3",
+  "python.venvPath": "${workspaceFolder}/bdd/.venv"
+}
