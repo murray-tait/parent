@@ -7,9 +7,10 @@ ARG CHROME_DRIVER_VERSION=$(curl -s chromedriver.storage.googleapis.com/LATEST_R
 # Configure apt and install packages
 RUN apt-get update \
 && apt-get -y install --no-install-recommends apt-utils dialog \
-&& apt-get install -y bash-completion git python3-full openssh-client less curl fd-find wget \
+&& apt-get install -y bash-completion git openssh-client less curl fd-find wget \
+python3-dev python3-pip python3-setuptools \
 procps unzip apt-transport-https ca-certificates gnupg-agent software-properties-common \
-python3-pip nano zip crudini graphviz jq vim lsb-release rsync wget sudo \
+nano zip crudini graphviz jq vim lsb-release rsync wget sudo \
 xvfb libxi6 libgconf-2-4 jq libjq1 libonig5 libxkbcommon0 libxss1 libglib2.0-0 libnss3 \
 libfontconfig1 libatk-bridge2.0-0 libatspi2.0-0 libgtk-3-0 libpango-1.0-0 libgdk-pixbuf2.0-0 libxcomposite1 \
 libxcursor1 libxdamage1 libxtst6 libappindicator3-1 libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libxfixes3 \
@@ -106,6 +107,7 @@ RUN mkdir -p /home/$USERNAME/.local/share \
 && ln -s  /home/$USERNAME/.local/share/hub-linux-amd64-2.14.2 /home/$USERNAME/.local/share/hub-linux \
 && rm hub-linux-amd64-2.14.2.tgz -f
 
+
 ###########################################################################################################################################
 # This Dockerfile adds a non-root user with sudo access. Use the "remoteUser"
 # property in devcontainer.json to use it. On Linux, the container user's GID/UIDs
@@ -121,8 +123,12 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
 && . "$NVM_DIR/bash_completion" \
 && nvm install v22.12.0
 
-RUN curl https://pyenv.run | bash \
-&& export PYENV_ROOT="/home/$USERNAME/.pyenv" && export PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init -)" && pyenv install 3.11.9 && pyenv global 3.11.9
+RUN curl -fsSL https://pyenv.run | bash \
+&& export PYENV_ROOT="/home/$USERNAME/.pyenv" \
+&& export PATH="$PYENV_ROOT/bin:$PATH" \
+&& eval "$(pyenv init -)" \
+&& pyenv install 3.11.9 \
+&& pyenv global 3.11.9
 
 # installing chrome
 RUN CHROME_VERSION=$(curl https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE); \
@@ -156,5 +162,7 @@ RUN curl -s "https://get.sdkman.io" | bash \
 
 COPY --chown=vscode .bashrc /home/$USERNAME/.bashrc 
 COPY --chown=vscode .bash_aliases /home/$USERNAME/.bash_aliases
+
+# RUN pip3 install pre-commit --user
 
 ENV DEBIAN_FRONTEND=dialog

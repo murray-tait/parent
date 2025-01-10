@@ -12,13 +12,10 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 if [ -d "$HOME/.pyenv/bin" ]; then 
-    export PATH="$HOME/.pyenv/bin:$PATH"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-
-    export PYENV_ROOT="$HOME/.pyenv"
 fi
 
 if [ -d "$HOME/.local/share/hub-linux" ]; then
