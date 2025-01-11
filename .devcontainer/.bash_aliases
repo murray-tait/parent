@@ -18,4 +18,3 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias fixdocker='sudo chmod 666 /var/run/docker.sock'
-

@@ -13,7 +13,7 @@ fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 
-if [ -d "$HOME/.pyenv/bin" ]; then 
+if [ -d "$HOME/.pyenv/bin" ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi

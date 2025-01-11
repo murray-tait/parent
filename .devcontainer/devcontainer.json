@@ -50,11 +50,6 @@
       ]
     }
   },
-
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [443, 3000],
   "containerUser": "vscode",
   "runArgs": ["--privileged"]
