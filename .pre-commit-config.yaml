@@ -21,3 +21,12 @@ repos:
             --disable=MD005,
             --disable=MD009,
           ]
+  - repo: https://github.com/AleksaC/terraform-py
+    rev: v1.10.4
+    hooks:
+      - id: tf-fmt
+      - id: tf-validate
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.22.1
+    hooks:
+      - id: gitleaks

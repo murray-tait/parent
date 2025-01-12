@@ -16,7 +16,8 @@ RUN apt-get update \
     libxcursor1 libxdamage1 libxtst6 libappindicator3-1 libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libxfixes3 \
     libdbus-1-3 libexpat1 libgcc1 libnspr4 libgbm1 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxext6 \
     libxrandr2 libxrender1 gconf-service fonts-liberation libappindicator1 xdg-utils build-essential zlib1g-dev \
-    libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev pipx apt-utils groff
+    libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev pipx apt-utils groff \
+    sqlite3, lzma, liblzma-dev, libbz2-dev, tk-dev
 
 # Yarn & Groff needed for AWS CLI
 RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
