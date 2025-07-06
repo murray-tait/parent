@@ -1,13 +1,16 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "terraform-github"
-		}
-	],
-	"settings": {
-		"files.simpleDialog.enable": true
-	}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "terraform-github"
+    },
+    {
+      "path": "bash"
+    }
+  ],
+  "settings": {
+    "files.simpleDialog.enable": true
+  }
 }
