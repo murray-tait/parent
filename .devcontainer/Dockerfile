@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 debian:12
+FROM --platform=linux/amd64 debian:12.11
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -6,7 +6,7 @@ ARG CHROME_DRIVER_VERSION=$(curl -s chromedriver.storage.googleapis.com/LATEST_R
 
 # Configure apt and install packages
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils dialog \
+    && apt-get -y install --no-install-recommends apt-utils libc-bin dialog \
     && apt-get install -y bash-completion git openssh-client less curl fd-find wget \
     python3-dev python3-pip python3-setuptools \
     procps unzip apt-transport-https ca-certificates gnupg-agent software-properties-common \
@@ -16,8 +16,7 @@ RUN apt-get update \
     libxcursor1 libxdamage1 libxtst6 libappindicator3-1 libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libxfixes3 \
     libdbus-1-3 libexpat1 libgcc1 libnspr4 libgbm1 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxext6 \
     libxrandr2 libxrender1 gconf-service fonts-liberation libappindicator1 xdg-utils build-essential zlib1g-dev \
-    libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev pipx apt-utils groff \
-    sqlite3, lzma, liblzma-dev, libbz2-dev, tk-dev
+    libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev pipx apt-utils groff tk-dev
 
 # Yarn & Groff needed for AWS CLI
 RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -107,6 +106,9 @@ RUN mkdir -p /home/$USERNAME/.local/share \
     && tar -zxvf home/$USERNAME/hub-linux-amd64-2.14.2.tgz -C /home/$USERNAME/.local/share \
     && ln -s  /home/$USERNAME/.local/share/hub-linux-amd64-2.14.2 /home/$USERNAME/.local/share/hub-linux \
     && rm hub-linux-amd64-2.14.2.tgz -f
+
+RUN wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq &&\
+    chmod +x /usr/local/bin/yq
 
 
 ###########################################################################################################################################
