@@ -8,6 +8,9 @@
     },
     {
       "path": "bash"
+    },
+    {
+      "path": "adventofcode"
     }
   ],
   "settings": {
