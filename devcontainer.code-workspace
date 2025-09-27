@@ -4,13 +4,16 @@
       "path": "."
     },
     {
-      "path": "terraform-github"
+      "path": "adventofcode"
+    },
+    {
+      "path": "aws-org"
     },
     {
       "path": "bash"
     },
     {
-      "path": "adventofcode"
+      "path": "terraform-github"
     },
     {
       "path": "til"
