@@ -4,5 +4,5 @@ pre-commit:
 lint:
 	pre-commit run --all-files
 
-aws-creds:
+auth-aws:
 	bin/credentials https://urbanfortress.awsapps.com/start#/
