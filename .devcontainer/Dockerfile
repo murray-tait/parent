@@ -19,9 +19,10 @@ RUN apt-get update \
     libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev pipx apt-utils groff tk-dev
 
 # Yarn & Groff needed for AWS CLI
-RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && sudo apt-key export 86E50310 | sudo gpg --dearmor -o /usr/share/keyrings/yarn.gpg
 
-RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/yarn.gpg] http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt-get update \
     && apt-get install -y yarn
 
@@ -108,6 +109,9 @@ RUN mkdir -p /home/$USERNAME/.local/share \
 
 RUN wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq &&\
     chmod +x /usr/local/bin/yq
+
+# General Update
+RUN apt-get upgrade -y
 
 
 ###########################################################################################################################################
