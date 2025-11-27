@@ -10,17 +10,6 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "args": "rick",
-      "justMyCode": false
-    },
-    {
-      "name": "Python Debugger: Behave",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "behave",
-      "console": "integratedTerminal",
-      "args": "-t wip -k",
-      "cwd": "${workspaceFolder}/bdd",
       "justMyCode": false
     }
   ]

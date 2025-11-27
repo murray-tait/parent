@@ -31,3 +31,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 if [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
     source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
+
+if [ -f "/usr/share/bash-completion/completions/git" ]; then
+   source /usr/share/bash-completion/completions/git
+fi
+
+complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
