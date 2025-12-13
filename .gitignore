@@ -5,4 +5,4 @@ adventofcode/
 aws-build/
 aws-org/
 gha/
-devcontainer/
+.devcontainer/

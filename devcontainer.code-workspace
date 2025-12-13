@@ -1,9 +1,6 @@
 {
   "folders": [
     {
-      "path": "."
-    },
-    {
       "path": "terraform-github"
     },
     {
@@ -23,6 +20,10 @@
     },
     {
       "path": "til"
+    },
+    {
+      "path": ".",
+      "name": "parent"
     }
   ],
   "settings": {
