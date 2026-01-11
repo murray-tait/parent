@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "path": ".",
+      "name": "parent"
+    },
+    {
       "path": "terraform-github"
     },
     {
@@ -19,11 +23,10 @@
       "path": "bash"
     },
     {
-      "path": "til"
+      "path": "home-server-rack"
     },
     {
-      "path": ".",
-      "name": "parent"
+      "path": "til"
     }
   ],
   "settings": {
